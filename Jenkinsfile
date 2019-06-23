@@ -31,6 +31,7 @@ pipeline {
         stage ('Deploy') {
             steps {
                 echo "This is Deployment Satge"
+                build 'dev-deployment'
             }
         }
     }
