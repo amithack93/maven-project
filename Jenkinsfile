@@ -17,7 +17,7 @@ pipeline {
                 echo "Maven Success"
             }
             post {
-                Success {
+                success {
                     echo "The Checkstyle Analysis Result"
                     checkstyle canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '**/checkstyle-result.xml', unHealthy: ''
                     echo "The Archive Artifact"
