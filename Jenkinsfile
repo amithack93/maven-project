@@ -14,6 +14,18 @@ pipeline {
             steps {
                 echo "This is Build Satge"
                 sh label: '', script: 'mvn clean package checkstyle:checkstyle'
+                echo "Maven Success"
+            }
+            post {
+                Success {
+                    echo "The Checkstyle Analysis Result"
+                    checkstyle canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '**/checkstyle-result.xml', unHealthy: ''
+                    echo "The Archive Artifact"
+                    archiveArtifacts '**/*.war'
+                    echo "Junit Test Report"
+                    junit '**/surefire-reports/*.xml'
+                    echo "Build Process Success"
+                }
             }
         }
         stage ('Deploy') {
