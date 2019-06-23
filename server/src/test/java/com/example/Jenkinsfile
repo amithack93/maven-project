@@ -8,7 +8,7 @@ pipeline {
             }
             stage ('build') {
                 steps {
-                    echo "This is Development Satge"
+                    echo "This is Build Satge"
                 }
             }
             stage ('Deploy') {
